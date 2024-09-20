@@ -9,7 +9,13 @@ const server = http.createServer((req, res) =>{
     if (method === 'GET' && parsedUrl.pathname === '/') {
         res.statusCode = 200;
         res.end(JSON.stringify({ message: 'GET request - Fetching on Home page' }));
-
+    }else if(method === 'GET' && parsedUrl.pathname === '/about'){
+        res.statusCode = 200;
+        res.end(JSON.stringify({message : 'GET request - Fetching on Home page'}))
+    }
+     else if(method === 'GET' && parsedUrl.pathname === '/contact'){
+        res.statusCode = 200;
+        res.end(JSON.stringify({message : 'GET request - Fetching on Contact page'}))
     }
 })
 
