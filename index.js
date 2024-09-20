@@ -25,11 +25,11 @@ const server = http.createServer((req, res) =>{
         req.on('end', () => {
             const newItem = JSON.parse(body);
             res.statusCode = 201;   
-            res.end(JSON.stringify({ message: `POST request - Adding new item`, data: newItem }));
+            res.end(JSON.stringify({ message: `POST request -- Adding new item`, data: newItem }));
         });
 
-    // PUT Request
     }
+      // PUT Request
 })
 
 server.listen(3000, ()=>{
