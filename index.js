@@ -44,6 +44,13 @@ const server = http.createServer((req, res) =>{
 
     // DELETE Request
     }
+    else if (method === 'DELETE' && parsedUrl.pathname.startsWith('/api/items/')) {
+        const itemId = parsedUrl.pathname.split('/').pop();
+        res.statusCode = 200;
+        res.end(JSON.stringify({ message: `DELETE request -- Deleting item ${itemId}` }));
+
+    // Handle 404 Not Found
+    }
 })
 
 server.listen(3000, ()=>{
