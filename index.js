@@ -17,6 +17,19 @@ const server = http.createServer((req, res) =>{
         res.statusCode = 200;
         res.end(JSON.stringify({message : 'GET request - Fetching on Contact page'}))
     }
+    else if (method === 'POST' && parsedUrl.pathname === '/api/items') {
+        let body = '';
+        req.on('data', chunk => {
+            body += chunk.toString();
+        });
+        req.on('end', () => {
+            const newItem = JSON.parse(body);
+            res.statusCode = 201;   
+            res.end(JSON.stringify({ message: `POST request - Adding new item`, data: newItem }));
+        });
+
+    // PUT Request
+    }
 })
 
 server.listen(3000, ()=>{
