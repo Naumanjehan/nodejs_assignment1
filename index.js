@@ -1,7 +1,11 @@
 const http = require("http")
 
 const server = http.createServer((req, res) =>{
-    res.end("helloo")
+    const { method, url } = req;
+    const parsedUrl = new URL(url, `http://${req.headers.host}`);
+
+    // Set response header to JSON
+    res.setHeader('Content-Type', 'application/json');
 })
 
 server.listen(3000, ()=>{
