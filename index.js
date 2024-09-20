@@ -39,7 +39,7 @@ const server = http.createServer((req, res) =>{
         req.on('end', () => {
             const updatedItem = JSON.parse(body);
             res.statusCode = 200;
-            res.end(JSON.stringify({ message: `PUT request - Updating item ${itemId}`, data: updatedItem }));
+            res.end(JSON.stringify({ message: `PUT request -- Updating item ${itemId}`, data: updatedItem }));
         });
 
     // DELETE Request
