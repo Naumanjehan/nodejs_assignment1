@@ -6,6 +6,11 @@ const server = http.createServer((req, res) =>{
 
     // Set response header to JSON
     res.setHeader('Content-Type', 'application/json');
+    if (method === 'GET' && parsedUrl.pathname === '/') {
+        res.statusCode = 200;
+        res.end(JSON.stringify({ message: 'GET request - Fetching on Home page' }));
+
+    }
 })
 
 server.listen(3000, ()=>{
